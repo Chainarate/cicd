@@ -7,14 +7,9 @@ on:
       - "v*.*.*"
 
 jobs:
-  test:
+  docker:
     name: Test TypeScript code for event ${{ github.event_name }} on ${{ github.ref }}
-    strategy:
-      matrix:
-        nodeversion: [">=18.x", latest]
-        os: [ubuntu-latest, macos-latest]
-
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - name: Checking out
         uses: actions/checkout@v3
